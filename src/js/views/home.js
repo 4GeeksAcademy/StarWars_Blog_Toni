@@ -15,6 +15,7 @@ export const Home = () => {
     actions.getVehicles();
   }, []);
 
+  
     // useEffect(() => {
     //   console.log(store.Planets);
     // }, [store.Planets]);

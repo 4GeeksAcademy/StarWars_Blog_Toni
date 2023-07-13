@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/cards.css";
+import { Context } from "../store/appContext";
 
 export const Character = props => {
 
+    const { store, actions } = useContext(Context);
     const [properties, setProperties] = useState({});
     const [image, setImage] = useState("")
     const [isFavorite, setIsFavorite] = useState(false);
+    
+    
 
 
     useEffect(() => {
@@ -22,7 +26,7 @@ export const Character = props => {
     }, []);
 
 
-    function imageDefault(image) {
+    function imageDefault() {
         let photo = `https://starwars-visualguide.com/assets/img/characters/${props.uid}.jpg`;
 
         fetch(photo).then((result) => {
@@ -34,9 +38,24 @@ export const Character = props => {
 
     const handlePress = (e) => {
         e.preventDefault()
+        let favs = [...store.Favorites]
         setIsFavorite(!isFavorite)
+
+        if(isFavorite === true) {
+                favs.push ({
+                name: props.name,
+                id: props.uid
+            })
+
+        }
+
+        actions.newFavorites(favs)
+        console.log(store.Favorites)
     }
 
+    // useEffect(() => {
+    //     console.log("Nuevo contenido de Favorites:", store.Favorites);
+    //   }, [store.Favorites]);
 
     useEffect(() => {
         imageDefault();

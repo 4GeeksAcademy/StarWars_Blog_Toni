@@ -15,7 +15,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://www.swapi.tech/api/people/")
 
 					.then(res => res.json())
-					.then(data => setStore({People: data.results }))
+					.then(data => setStore( {People: data.results }))
 					.catch(err => console.error(err))
 			},
 
@@ -23,7 +23,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://www.swapi.tech/api/planets/")
 
 					.then(res => res.json())
-					.then(data => setStore({Planets: data.results }))
+					.then(data => setStore({ Planets: data.results }))
 					.catch(err => console.error(err))
 			},
 
@@ -31,9 +31,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://www.swapi.tech/api/vehicles/")
 
 					.then(res => res.json())
-					.then(data => setStore({Vehicles: data.results }))
+					.then(data => setStore( {Vehicles: data.results } ))
 					.catch(err => console.error(err))
+			},
+
+
+			newFavorites: (favList) => {
+				setStore( {Favorites: favList} )
 			}
+
 		}
 	};
 };
