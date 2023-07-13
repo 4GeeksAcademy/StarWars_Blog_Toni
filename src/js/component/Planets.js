@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import "../../styles/cards.css";
+import { Context } from "../store/appContext";
 
 export const Planets = props => {
 
+    const { store, actions } = useContext(Context);
     const [properties, setProperties] = useState({});
     const [isFavorite, setIsFavorite] = useState(false);
 
+
+     // LLAMADA FETCH PARA TRAER LAS PROPIEDADES QUE SE EJECUTA MEDIANTE USEEFFECT SOLO 1 VEZ
 
     useEffect(() => {
 
@@ -22,13 +26,34 @@ export const Planets = props => {
 
 
 
+    // FUNCION ICONO DE ME GUSTA
 
-
-
-
-    const handlePress = () => {
+    const handlePress = (e) => {
+        e.preventDefault()
+        let favs = [...store.Favorites]
         setIsFavorite(!isFavorite)
+
+        if(!isFavorite === true) {
+                favs.push ({
+                name: props.name,
+                id: props.uid,
+                class: "characterInfo"
+            })
+
+        } else (
+            favs = favs.filter((item) => item.name !== props.name)
+            )
+         
+        actions.newFavorites(favs)
+
     }
+
+     // useEffect utilizado para setaar el estado de favoritos en función de si el nombre esta o no en la cesta
+
+     useEffect(() => {
+        const isCharacterFavorite = store.Favorites.some((favorite) => favorite.name === props.name);
+        setIsFavorite(isCharacterFavorite);
+    }, [store.Favorites]);
 
 
 

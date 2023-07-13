@@ -6,6 +6,14 @@ import "../../styles/navbar.css";
 export const Navbar = () => {
     const { store, actions } = useContext(Context);
 
+	// FUNCION PARA ELIMINAR CONTACTO DE CESTA Y QUE NO SE CIERRE DROPBOX
+
+	const handleDeleteFavorites = (e, name) => {
+        e.stopPropagation();
+		const favs = store.Favorites.filter((item)=> item.name !== name)
+		actions.newFavorites(favs)
+    };
+
     return (
         <nav className="container navbar navbar-light bg-light mb-3">
             <Link to="/">
@@ -43,9 +51,8 @@ export const Navbar = () => {
 
                                 <button
                                     className="btn-fav"
-                                    onClick={() =>
-                                        actions.deleteFavorites(
-                                            favBasket.name
+                                    onClick={(e) =>handleDeleteFavorites(
+                                            e, favBasket.name
                                         )
                                     }
                                 >

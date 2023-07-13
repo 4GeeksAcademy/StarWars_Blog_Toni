@@ -44,10 +44,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				setStore( {Favorites: favList} )
 			},
 
-			deleteFavorites: (deleteName) => {
-				const favList = getStore().Favorites.filter((item)=> item.name !== deleteName)
-				setStore( {Favorites: favList} )
-			}
 
 		}
 	};
