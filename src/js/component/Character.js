@@ -85,7 +85,8 @@ export const Character = props => {
                 <p className="card-text mb-1">Gender: {properties.gender}</p>
                 <p className="card-text mb-1">Hair Color: {properties.hair_color}</p>
                 <p className="card-text mb-1">Eye-Color: {properties.eye_color}</p>
-                <Link to={`/characterInfo/${props.uid}`} className="btn btn-primary mt-3 bg-transparent text-primary">Learn More!</Link>
+                <Link to={`/characterInfo/${props.uid}/${props.name}`}
+                 className="btn btn-primary mt-3 bg-transparent text-primary">Learn More!</Link>
                 <button className="btn-icon" onClick={handlePress}>
 
                     {

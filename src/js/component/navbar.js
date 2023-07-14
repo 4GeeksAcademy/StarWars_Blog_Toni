@@ -36,15 +36,16 @@ export const Navbar = () => {
 
                     Favorites ({store.Favorites.length})
                 </button>
-                <ul className="dropdown-menu">
+                <ul className="dropdown-menu dropdown-menu-end">
                     {store.Favorites.length === 0 ? (
                         <li className="dropdown-item">Empty</li>
                     ) : (
                         store.Favorites.map((favBasket) => (
                             <li key={favBasket.id}>
+                                <div className="item-container">
                                 <Link
                                     className="link-fav"
-                                    to={`/${favBasket.clase}/${favBasket.id}`}
+                                    to={`/${favBasket.class}/${favBasket.id}/${favBasket.name}`}
                                 >
                                     {favBasket.name}
                                 </Link>
@@ -58,6 +59,7 @@ export const Navbar = () => {
                                 >
                                     <i className="fa-solid fa-trash "></i>
                                 </button>
+                                </div>
                             </li>
                         ))
                     )}

@@ -9,12 +9,19 @@
   }
 
 .btn-fav {
-    float: right;
     border: none;
     margin-top: 3px;
+    margin-left: auto;
 }
+
+.item-container {
+    display: flex;
+    white-space: nowrap;
+    margin-left: auto;
+  }
 
 .link-fav{
     margin-left: 3px;
 }
+
 
