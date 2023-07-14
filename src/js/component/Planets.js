@@ -6,26 +6,10 @@ import { Context } from "../store/appContext";
 export const Planets = props => {
 
     const { store, actions } = useContext(Context);
-    const [properties, setProperties] = useState({});
     const [isFavorite, setIsFavorite] = useState(false);
 
 
-     // LLAMADA FETCH PARA TRAER LAS PROPIEDADES QUE SE EJECUTA MEDIANTE USEEFFECT SOLO 1 VEZ
-
-    useEffect(() => {
-
-        fetch(`https://www.swapi.tech/api/planets/${props.uid}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setProperties(data.result.properties);
-            })
-            .catch((error) => console.error(error));
-
-
-    }, []);
-
-
-
+     
     // FUNCION ICONO DE ME GUSTA
 
     const handlePress = (e) => {
@@ -63,14 +47,14 @@ export const Planets = props => {
             <img src="https://starwars-visualguide.com/assets/img/planets/2.jpg" className="card-img-top" alt="Error al cargar la imagen" />
             <div className="card-body">
                 <h5 className="card-title mb-4">{props.name}</h5>
-                <p className="card-text mb-1">Population: {properties.population}</p>
-                <p className="card-text mb-1">Terrain: {properties.terrain}</p>
-                <a href={props.url} className="btn btn-primary mt-3 bg-transparent text-primary">Learn More!</a>
-
+                <p className="card-text mb-1">Population: </p>
+                <p className="card-text mb-1">Terrain: </p>
+                <Link to={`/planetInfo/${props.uid}/${props.name}`}
+                 className="btn btn-primary mt-3 bg-transparent text-primary">Learn More!</Link>
                 <button className="btn-icon" onClick={handlePress}>
 
                     {
-                        (isFavorite) ? <i className="fa-sharp fa-solid fa-heart fa-lg"></i> : <i className="fa-sharp fa-regular fa-heart fa-lg"></i>
+                        (isFavorite) ? <i className="fa-sharp fa-solid fa-heart fa-lg"></i>: <i className="fa-sharp fa-regular fa-heart fa-lg"></i>
                     }
 
                 </button>

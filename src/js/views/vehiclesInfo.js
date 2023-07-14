@@ -4,16 +4,14 @@ import { Context } from "../store/appContext";
 import "../../styles/info.css";
 
 
-export const CharacterInfo = () => {
+export const VehiclesInfo = () => {
 
   const { store, actions } = useContext(Context);
   const { id, name } = useParams();
-  const imagen = store.PeopleImages;
-  const properties = store.PeopleProperties;
+  const properties = store.VehiclesProperties;
 
   useEffect(() => {
-    actions.getPeopleProperties(id)
-    actions.getPeopleImages(id)
+    actions.getVehiclesProperties(id)
   }, [])
 
 
@@ -23,10 +21,10 @@ export const CharacterInfo = () => {
       <div className="row flex-row">
         <div className="col-6">
           <img
-            src={imagen}
+            src="https://starwars-visualguide.com/assets/img/vehicles/18.jpg"
             className="img-thumbnail  img-fluid"
             alt="..."
-            style={{ Width: "800px", height: "450px" }}>
+            style={{ maxWidth: "400px", height: "450px" }}>
           </img>
         </div>
         <div className="description col-3 text-center">
@@ -42,39 +40,28 @@ export const CharacterInfo = () => {
           <span>{name}</span>
         </div>
         <div className="col-2">
-          <p>Birth Year</p>
-          <span>{properties.birth_year}</span>
+          <p>Model</p>
+          <span>{properties.model}</span>
         </div>
         <div className="col-2">
-          <p>Gender</p>
-          <span>{properties.gender}</span>
+          <p>Vehicle Class</p>
+          <span>{properties.vehicle_class}</span>
         </div>
         <div className="col-2">
-          <p>Height</p>
-          <span>{properties.height}</span>
+          <p>Passengers</p>
+          <span>{properties.passengers}</span>
         </div>
         <div className="col-2">
-          <p>Skin Colour</p>
-          <span>{properties.skin_color}</span>
+          <p>Length</p>
+          <span>{properties.length}</span>
         </div>
         <div className="col-2">
-          <p>Eye Colour</p>
-          <span>{properties.eye_color}</span>
+          <p>Manufacturer</p>
+          <span>{properties.manufacturer}</span>
         </div>
       </div>
 
     </div>
 
-
   )
-
 }
-
-
-
-
-
-
-
-
-

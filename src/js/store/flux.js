@@ -6,7 +6,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			PeopleProperties: [],
 			PeopleImages: [],
 			Planets: [],
+			PlanetProperties: [],
 			Vehicles: [],
+			VehiclesProperties: [],
 			Favorites: [],
 
 		},
@@ -29,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(`https://www.swapi.tech/api/people/${id}`)
 					.then((res) => res.json())
 					.then((data) => {
-						setStore({PeopleProperties: data.result.properties});
+						setStore({ PeopleProperties: data.result.properties });
 					})
 					.catch((error) => console.error(error));
 
@@ -41,13 +43,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				fetch(photo).then((result) => {
 					if (result) {
-						setStore({PeopleImages: photo});
+						setStore({ PeopleImages: photo });
 					}
 				});
 
 			},
-
-
 
 
 			getPlanets: () => {
@@ -58,12 +58,33 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(err => console.error(err))
 			},
 
+
+			getPlanetsProperties: (id) => {
+				fetch(`https://www.swapi.tech/api/planets/${id}`)
+					.then((res) => res.json())
+					.then((data) => {
+						setStore({ PlanetProperties: data.result.properties });
+					})
+					.catch((error) => console.error(error));
+			},
+
+
 			getVehicles: () => {
 				fetch("https://www.swapi.tech/api/vehicles/")
 
 					.then(res => res.json())
 					.then(data => setStore({ Vehicles: data.results }))
 					.catch(err => console.error(err))
+			},
+
+
+			getVehiclesProperties: (id) => {
+				fetch(`https://www.swapi.tech/api/vehicles/${id}`)
+					.then((res) => res.json())
+					.then((data) => {
+						setStore({ VehiclesProperties: data.result.properties });
+					})
+					.catch((error) => console.error(error));
 			},
 
 

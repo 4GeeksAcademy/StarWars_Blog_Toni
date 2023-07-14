@@ -6,12 +6,9 @@ import { Context } from "../store/appContext";
 export const Character = props => {
 
     const { store, actions } = useContext(Context);
-    // const [properties, setProperties] = useState({});
-    // const [image, setImage] = useState("")
     const [isFavorite, setIsFavorite] = useState(false);
     
 
-   
  
 
     // FUNCION ICONO DE ME GUSTA
