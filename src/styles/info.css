@@ -1,12 +1,27 @@
+h1 {
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
 
-.right {
+.description {
+    color: black;
     align-items: center;
     margin-top: 100px;
-    color: black;
+    font-size: 20px;
+    
 }
+
+.img-thumbnail {
+    margin-top: 100px;
+    margin-left: 180px;
+}
+
+
+
 
 .row {
     color: red;
     margin-left: 50px;
+    margin-bottom: 25px;
 
 }

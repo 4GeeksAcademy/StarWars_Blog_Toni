@@ -23,30 +23,25 @@ useEffect(()=>{
 // },[store.PeopleProperties],[store.PeopleImages])
   
   
- 
-return (
-  <div className="Container-fluid-principal mt-5">
-    <div className="container-fluid row">
-      <div className="row flex-row">
-        <div className="col">
-          <img
-            src= {imagen}
-            className="img-thumbnail ms-4 mt-4 img-fluid"
-            alt="..."
-            style={{ width: "600px", height: "600px" }}
-          ></img>
-        </div>
-        <div className="right col text-center">
-          <h1>{name}</h1>
-          <p>
-          sed ut perspiciatis unde omnis iste natus error sit voluptatem accusaum doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-          </p>
-        </div>
-      </div>
-    </div>
-    
-    <hr />
 
+  return (
+    <div className="container">
+      <div className="row flex-row">
+      <div className="col-6">
+        <img
+          src={imagen}
+          className="img-thumbnail  img-fluid"
+          alt="..."
+          style={{ Width: "800px", height: "450px" }}>
+        </img>
+      </div>
+      <div className="description col-3 text-center">
+        <h1>{name}</h1>
+        <p> sed ut perspiciatis unde omnis iste natus error sit voluptatem accusaum doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem</p>
+      </div>
+      </div>
+
+      <hr />
       <div className="row">
         <div className="col-2">
           <p>Name</p>
@@ -73,7 +68,27 @@ return (
           <span>{properties.eye_color}</span>
         </div>
       </div>
+
     </div>
+    
+
+  )
+
+
+}
+
+
+
+
+
+
+
+
+
+//     <hr />
+
+      
+    
   
-);
-};
+// );
+// };
