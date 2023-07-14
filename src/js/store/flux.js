@@ -3,6 +3,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 		store: {
 
 			People: [],
+			PeopleProperties: [],
+			PeopleImages: [],
 			Planets: [],
 			Vehicles: [],
 			Favorites: [],
@@ -21,7 +23,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.catch(err => console.error(err))
 			},
 
-		
+
+			getPeopleProperties: (id) => {
+
+				fetch(`https://www.swapi.tech/api/people/${id}`)
+					.then((res) => res.json())
+					.then((data) => {
+						setStore({PeopleProperties: data.result.properties});
+					})
+					.catch((error) => console.error(error));
+
+			},
+
+			getPeopleImages: (id) => {
+
+				let photo = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
+
+				fetch(photo).then((result) => {
+					if (result) {
+						setStore({PeopleImages: photo});
+					}
+				});
+
+			},
+
+
+
 
 			getPlanets: () => {
 				fetch("https://www.swapi.tech/api/planets/")
@@ -42,7 +69,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			// funciones para setear el array de favoritos
 
-			newFavorites: ( favList ) => {
+			newFavorites: (favList) => {
 				setStore({ Favorites: favList })
 			},
 
