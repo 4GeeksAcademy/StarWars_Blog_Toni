@@ -75,8 +75,7 @@ export const Character = props => {
     }, [])
 
 
-
-    // estructura de la card
+    // Estructura de la card
 
     return (
         <div className="card m-2" style={{ minWidth: '18rem', textAlign: "left" }}>
@@ -86,8 +85,7 @@ export const Character = props => {
                 <p className="card-text mb-1">Gender: {properties.gender}</p>
                 <p className="card-text mb-1">Hair Color: {properties.hair_color}</p>
                 <p className="card-text mb-1">Eye-Color: {properties.eye_color}</p>
-                <a to={props.url} className="btn btn-primary mt-3 bg-transparent text-primary">Learn More!</a>
-
+                <Link to={`/characterInfo/${props.uid}`} className="btn btn-primary mt-3 bg-transparent text-primary">Learn More!</Link>
                 <button className="btn-icon" onClick={handlePress}>
 
                     {
@@ -95,7 +93,7 @@ export const Character = props => {
                     }
 
                 </button>
-
+                    
             </div>
         </div>
     );

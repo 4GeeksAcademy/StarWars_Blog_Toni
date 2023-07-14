@@ -13,20 +13,20 @@ export const Home = () => {
     actions.getPeople();
     actions.getPlanets();
     actions.getVehicles();
+    
   }, []);
 
+
   
-    // useEffect(() => {
-    //   console.log(store.Planets);
-    // }, [store.Planets]);
 
   return (
     <div>
 
       {/* MAPEO DE PERSONAJES */}
 
-      <div className="text-center m-5 d-flex overflow-scroll" style={{ overflow: 'auto', whiteSpace: 'nowrap' }}>
+      <div className="text-center d-flex overflow-scroll" style={{ overflow: 'auto', whiteSpace: 'nowrap', margin:"50px", marginTop:"100px" }}>
         {store.People.map((contact) => {
+
           return <Character
             key={contact.uid}
             {...contact}

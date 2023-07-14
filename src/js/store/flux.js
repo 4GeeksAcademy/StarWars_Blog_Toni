@@ -2,26 +2,30 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 
-			People:[],
+			People: [],
+			PeopleProperties: [],
 			Planets: [],
 			Vehicles: [],
 			Favorites: [],
-			
+			properties: {}
+
 		},
 
 		actions: {
-			
+
 			// llamadas al fetch
 
 			getPeople: () => {
 				fetch("https://www.swapi.tech/api/people/")
 
 					.then(res => res.json())
-					.then(data => setStore( {People: data.results }))
+					.then(data => setStore({ People: data.results }))
 					.catch(err => console.error(err))
 			},
 
-			getPlanets: () => {	
+		
+
+			getPlanets: () => {
 				fetch("https://www.swapi.tech/api/planets/")
 
 					.then(res => res.json())
@@ -33,15 +37,15 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch("https://www.swapi.tech/api/vehicles/")
 
 					.then(res => res.json())
-					.then(data => setStore( {Vehicles: data.results } ))
+					.then(data => setStore({ Vehicles: data.results }))
 					.catch(err => console.error(err))
 			},
 
 
 			// funciones para setear el array de favoritos
 
-			newFavorites: (favList) => {
-				setStore( {Favorites: favList} )
+			newFavorites: ( favList ) => {
+				setStore({ Favorites: favList })
 			},
 
 
