@@ -21,7 +21,6 @@ export const Character = props => {
                 favs.push ({
                 name: props.name,
                 id: props.uid,
-                class: "characterInfo"
             })
 
         } else (

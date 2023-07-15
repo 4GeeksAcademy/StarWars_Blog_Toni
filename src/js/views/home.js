@@ -9,6 +9,8 @@ import { Vehicles } from "../component/Vehicles";
 
 export const Home = () => {
   const { store, actions } = useContext(Context);
+  const [selectedCharacterId, setSelectedCharacterId] = useState(null);
+  const [peopleProperties, setPeopleProperties] = useState({});
 
 
 
@@ -19,7 +21,16 @@ export const Home = () => {
     actions.getVehicles();
   }, []);
 
- 
+  
+  useEffect(() => {
+    if (selectedCharacterId) {
+      actions.getPeopleProperties(selectedCharacterId)
+        .then((data) => {
+          setPeopleProperties(data);
+        })
+        .catch((error) => console.error(error));
+    }
+  }, [selectedCharacterId]);
 
 
   return (

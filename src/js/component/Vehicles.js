@@ -22,7 +22,7 @@ export const Vehicles = props => {
                 favs.push ({
                 name: props.name,
                 id: props.uid,
-                class: "characterInfo"
+               
             })
 
         } else (
