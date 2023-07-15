@@ -44,12 +44,10 @@ export const Planets = props => {
 
     return (
         <div className="card m-2" style={{ minWidth: '18rem', textAlign: "left" }}>
-            <img src="https://starwars-visualguide.com/assets/img/planets/2.jpg" className="card-img-top" alt="Error al cargar la imagen" />
+            <img className="rounded-top" alt= "Error al cargar la imagen" src={props.id === "1" ? "https://vignette.wikia.nocookie.net/kotor/images/d/df/Tatooine-planeta.jpg/revision/latest?cb=20100311171406&path-prefix=es" : "https://starwars-visualguide.com/assets/img/" + props.type + "/" + props.id + ".jpg" } />
             <div className="card-body">
                 <h5 className="card-title mb-4">{props.name}</h5>
-                <p className="card-text mb-1">Population: </p>
-                <p className="card-text mb-1">Terrain: </p>
-                <Link to={`/planetInfo/${props.uid}/${props.name}`}
+                <Link to={`/planetInfo/${props.id}/${props.type}/${props.name}`}
                  className="btn btn-primary mt-3 bg-transparent text-primary">Learn More!</Link>
                 <button className="btn-icon" onClick={handlePress}>
 

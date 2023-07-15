@@ -1,11 +1,15 @@
 
 .fa-sharp {
-    color: red
+    color: rgb(212, 212, 24);
+    border: 1px solid rgb(212, 212, 24);
+    border-radius: 5px;
+    padding: 10px;
+    
 }
 
 .btn-icon {
     border: none;
     float: right;
-    margin-top:20px;
+    margin-top:15px;
 
 }

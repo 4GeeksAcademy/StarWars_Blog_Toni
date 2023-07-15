@@ -7,10 +7,9 @@ export const Character = props => {
 
     const { store, actions } = useContext(Context);
     const [isFavorite, setIsFavorite] = useState(false);
-    
+   
 
- 
-
+   
     // FUNCION ICONO DE ME GUSTA
 
     const handlePress = (e) => {
@@ -44,19 +43,14 @@ export const Character = props => {
 
    
 
-   
-
     // Estructura de la card
 
     return (
         <div className="card m-2" style={{ minWidth: '18rem', textAlign: "left" }}>
-            <img src="..." className="card-img-top" alt="Error al cargar la imagen" />
+            <img className="rounded-top" alt= "Error al cargar la imagen" src= {"https://starwars-visualguide.com/assets/img/"+ props.type + "/" + props.id + ".jpg"} />
             <div className="card-body">
                 <h5 className="card-title mb-4">{props.name}</h5>
-                <p className="card-text mb-1">Gender: </p>
-                <p className="card-text mb-1">Hair Color: </p>
-                <p className="card-text mb-1">Eye-Color: </p>
-                <Link to={`/characterInfo/${props.uid}/${props.name}`}
+                <Link to={`/characterInfo/${props.id}/${props.type}/${props.name}`}
                  className="btn btn-primary mt-3 bg-transparent text-primary">Learn More!</Link>
                 <button className="btn-icon" onClick={handlePress}>
 

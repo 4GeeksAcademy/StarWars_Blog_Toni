@@ -4,7 +4,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			People: [],
 			PeopleProperties: [],
-			PeopleImages: [],
 			Planets: [],
 			PlanetProperties: [],
 			Vehicles: [],
@@ -37,17 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			},
 
-			getPeopleImages: (id) => {
-
-				let photo = `https://starwars-visualguide.com/assets/img/characters/${id}.jpg`;
-
-				fetch(photo).then((result) => {
-					if (result) {
-						setStore({ PeopleImages: photo });
-					}
-				});
-
-			},
+			
 
 
 			getPlanets: () => {
